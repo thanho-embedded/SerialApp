@@ -1,0 +1,12 @@
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.csproj.AssemblyReference.cache
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.csproj.SuggestedBindingRedirects.cache
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.Properties.Resources.resources
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.Views.StartupView.resources
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.csproj.GenerateResource.cache
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.csproj.CoreCompileInputs.cache
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\bin\Debug\TeraMega.exe.config
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\bin\Debug\TeraMega.exe
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\bin\Debug\TeraMega.pdb
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.exe
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.pdb
+C:\Users\than\OneDrive\home\resources\ui\SerialComm\TeraMega\obj\Debug\TeraMega.Views.MainView.resources
