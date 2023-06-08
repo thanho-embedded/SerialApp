@@ -9,13 +9,18 @@ namespace TeraMega.Utils
 {
     public static class FileExtension
     {
+        /// <summary>
+        /// Read all data of .ini file
+        /// </summary>
+        /// <param name="iniFile"></param>
+        /// <returns></returns>
         public static Dictionary<string, Dictionary<string, string>> ReadIniFile(this string iniFile)
         {
             Dictionary<string, Dictionary<string, string>> dict = new Dictionary<string, Dictionary<string, string>>();
 
             if (!File.Exists(iniFile))
             {
-                DebugHelper.CmdWarn($"The {iniFile}."); // File doesn't exists
+                DebugHelper.CmdWarn($"The '{iniFile}' doesn't exists."); // File doesn't exists
             }
             else
             {
