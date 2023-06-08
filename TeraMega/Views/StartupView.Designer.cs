@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(127, 74);
+            this.label1.Location = new System.Drawing.Point(127, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 45);
             this.label1.TabIndex = 1;
@@ -87,19 +87,20 @@
             // progSystemInit
             // 
             this.progSystemInit.BackColor = System.Drawing.Color.Lime;
-            this.progSystemInit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progSystemInit.Location = new System.Drawing.Point(0, 242);
+            this.progSystemInit.Location = new System.Drawing.Point(135, 103);
+            this.progSystemInit.Margin = new System.Windows.Forms.Padding(0);
             this.progSystemInit.Name = "progSystemInit";
-            this.progSystemInit.Size = new System.Drawing.Size(670, 12);
+            this.progSystemInit.Size = new System.Drawing.Size(475, 12);
             this.progSystemInit.Step = 1;
             this.progSystemInit.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(4, 218);
+            this.label2.Location = new System.Drawing.Point(0, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(272, 21);
             this.label2.TabIndex = 1;

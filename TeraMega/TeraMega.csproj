@@ -50,6 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Rs232Service.cs" />
     <Compile Include="UserDefines\Rs232Data.cs" />
+    <Compile Include="Utils\DebugHelper.cs" />
+    <Compile Include="Utils\FileExtension.cs" />
     <Compile Include="Utils\SerialPortExtension.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>

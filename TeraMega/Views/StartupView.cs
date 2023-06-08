@@ -1,51 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
+using TeraMega.Utils;
 
 namespace TeraMega.Views
 {
 
-    public partial class StartupView : Form
+    public partial class StartupView : Form, INotifyPropertyChanged
     {
         //...Fields
-        private int init_percentage = 0;
+        private int systemInitCount = 0;
         private MainView view;
-        private System.Windows.Forms.Timer timer;
+        private Timer timerCyclicInit;
+
+        public Dictionary<string, Dictionary<string, string>> SystemConfig { get; set; }
+        public int SystemInitCount
+        {
+            get => systemInitCount;
+            set
+            {
+                if (systemInitCount != value)
+                {
+                    systemInitCount = value;
+                    Notify(nameof(systemInitCount));
+                    UpdatedProcessControl();
+                }
+            }
+        }
+
+        //...Constance
+        const string SYS_CONFIG_FILE_PATH = "SysConfig.ini";
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public StartupView()
         {
             InitializeComponent();
 
-            timer = new System.Windows.Forms.Timer();
-            timer.Interval = 100;
-            timer.Enabled = true;
-            timer.Tick += delegate { SystemInit(); };          
+            //...Init timer
+            timerCyclicInit = new Timer();
+            timerCyclicInit.Interval = 50;
+            timerCyclicInit.Enabled = true;
+
+            timerCyclicInit.Tick += (s, e) =>
+            {
+                SystemInitCount++;
+                ShowMainView();
+            };
+
+            SystemInit();
         }
 
         private void SystemInit()
         {
-            if (init_percentage < 100)
+            SystemConfig = SYS_CONFIG_FILE_PATH.ReadIniFile();
+        }
+        private void ShowMainView()
+        {
+            if (SystemInitCount >= 100)
             {
-                update_control_processbar(progSystemInit, ++init_percentage);
-            }               
-            else
-            {
-                timer.Enabled = false;
+                timerCyclicInit.Enabled = false;
                 this.Hide();
                 view = new MainView();
-                view.Show(); 
+                view.Show();
             }
         }
-
-        private void update_control_processbar(ProgressBar control, int val)
+        private void UpdatedProcessControl()
         {
-            if (control.InvokeRequired)
+            if (progSystemInit.InvokeRequired)
             {
-                control.Invoke(new Action(() => update_control_processbar(control, val)));
+                progSystemInit.Invoke(new Action(() => UpdatedProcessControl()));
             }
             else
             {
-                control.Value = val;
+                progSystemInit.Value = SystemInitCount;
             }
+        }
+        private void Notify(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

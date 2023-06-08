@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 419);
+            this.ClientSize = new System.Drawing.Size(790, 397);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainView";
