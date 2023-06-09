@@ -15,6 +15,8 @@ namespace TeraMega.Views
         private Timer timerCyclicInit;
 
         public Dictionary<string, Dictionary<string, string>> SystemConfig { get; set; }
+
+        //...Propperties
         public int SystemInitCount
         {
             get => systemInitCount;

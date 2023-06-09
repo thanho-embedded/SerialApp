@@ -27,12 +27,12 @@ namespace TeraMega.Utils
         }
         /// <summary>
         /// Print a text on sonsole with caotion WARN and yellow color
-        /// </summary>
+        /// </summary> 
         /// <param name="message"></param>
         public static void CmdWarn(string message)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Cmd(message, "WARN");
+            Cmd(message, "WARNING");
             Console.ResetColor();
         }
         /// <summary>
