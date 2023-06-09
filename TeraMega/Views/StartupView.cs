@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using MixingSystem.Utils;
+using TeraMega.Presentors;
+using TeraMega.Services;
 
 namespace MixingSystem.Views
 {
@@ -11,7 +13,7 @@ namespace MixingSystem.Views
     {
         //...Fields
         private int systemInitCount = 0;
-        private MainView view;
+        private string info = "Initializing";
         private Timer timerCyclicInit;
 
         public Dictionary<string, Dictionary<string, string>> SystemConfig { get; set; }
@@ -42,7 +44,7 @@ namespace MixingSystem.Views
 
             //...Init timer
             timerCyclicInit = new Timer();
-            timerCyclicInit.Interval = 50;
+            timerCyclicInit.Interval = 100;
             timerCyclicInit.Enabled = true;
 
             timerCyclicInit.Tick += (s, e) =>
@@ -64,9 +66,28 @@ namespace MixingSystem.Views
             {
                 timerCyclicInit.Enabled = false;
                 this.Hide();
-                view = new MainView();
-                view.Show();
+
+                PlcSyncService plcSyncService = new PlcSyncService(S7.Net.CpuType.S71500, "192.168.0.1", 0, 1);
+                MainView view = new MainView();
+
+                new PlcSyncPresenter(plcSyncService, view);
             }
+            else
+            {
+                SearchForUpdateLabelProperty("INIT", info);
+                if (info == "Initializing")
+                    info = "Initializing.";
+                else if (info == "Initializing.")
+                    info = "Initializing..";
+                else if (info == "Initializing..")
+                    info = "Initializing...";
+                else if (info == "Initializing...")
+                    info = "Initializing....";
+                else if (info == "Initializing....")
+                    info = "Initializing.....";
+                else if (info == "Initializing.....")
+                    info = "Initializing";
+            }    
         }
         private void UpdatedProcessControl()
         {
@@ -82,6 +103,35 @@ namespace MixingSystem.Views
         private void Notify(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void SearchForUpdateLabelProperty(string tag, string val)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label ctrl)
+                {
+                    if ((string)ctrl.Tag == tag)
+                    {
+                        UpdateLabelProperty(ctrl, tag, val);
+                    }
+                }
+            }
+        }
+
+        private void UpdateLabelProperty(Label ctrl, string tag, string val)
+        {
+            if ((string)ctrl.Tag == tag)
+            {
+                if (ctrl.InvokeRequired)
+                {
+                    ctrl.Invoke(new Action(() => UpdateLabelProperty(ctrl, tag, val)));
+                }
+                else
+                {
+                    ctrl.Text = val;
+                }
+            }
         }
     }
 }

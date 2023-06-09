@@ -10,14 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MixingSystem.Services;
 using MixingSystem.Utils;
+using TeraMega.Presentors;
+using TeraMega.Services;
+using TeraMega.Views;
 
 namespace MixingSystem.Views
 {
-    public partial class MainView : Form
+    public partial class MainView : Form,IMainView
     {
         //...Fields
         private Rs232Service rs232Handle;
-
+        
         //...Threadings
         const string ROOT_THREAD_NAME = "MAIN_VIEW_THREAD_";
         const string THREAD_1ST_NAME = "MAIN_VIEW_THREAD_1";
@@ -118,13 +121,13 @@ namespace MixingSystem.Views
                     default:
                         break;
                 }
-                Thread.Sleep(1);
+                Thread.Sleep(30);
             }
         }
         //...Updated control properties
         private void PercentageSimulation(int index)
         {
-            if (percentages[index] < 100) percentages[index]++; else percentages[index] = 0;
+            if (percentages[index] < 100) percentages[index]++; //else percentages[index] = 0;
         }
         private void SearchForUpdateProcessBarProperty(string tag, int val)
         {
@@ -181,6 +184,11 @@ namespace MixingSystem.Views
                     ctrl.Value = val;
                 }
             }
+        }
+
+        public void Send()
+        {
+            throw new NotImplementedException();
         }
     }
 }
