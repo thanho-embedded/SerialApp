@@ -4,9 +4,9 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeraMega.UserDefines;
+using MixingSystem.UserDefines;
 
-namespace TeraMega.Utils
+namespace MixingSystem.Utils
 {
     public static class SerialPortExtension
     {

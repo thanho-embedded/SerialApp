@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TeraMega.Services;
-using TeraMega.Utils;
+using MixingSystem.Services;
+using MixingSystem.Utils;
 
-namespace TeraMega.Views
+namespace MixingSystem.Views
 {
     public partial class MainView : Form
     {

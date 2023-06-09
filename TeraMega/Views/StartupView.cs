@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using TeraMega.Utils;
+using MixingSystem.Utils;
 
-namespace TeraMega.Views
+namespace MixingSystem.Views
 {
 
     public partial class StartupView : Form, INotifyPropertyChanged

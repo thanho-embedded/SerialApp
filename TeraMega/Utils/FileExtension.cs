@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeraMega.Utils
+namespace MixingSystem.Utils
 {
     public static class FileExtension
     {

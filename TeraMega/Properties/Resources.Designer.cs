@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TeraMega.Properties
+namespace MixingSystem.Properties
 {
 
 

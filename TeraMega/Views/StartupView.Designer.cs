@@ -1,4 +1,4 @@
-﻿namespace TeraMega.Views
+﻿namespace MixingSystem.Views
 {
     partial class StartupView
     {

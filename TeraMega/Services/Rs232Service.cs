@@ -4,9 +4,9 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeraMega.UserDefines;
+using MixingSystem.UserDefines;
 
-namespace TeraMega.Services
+namespace MixingSystem.Services
 {
     public class Rs232Service
     {
